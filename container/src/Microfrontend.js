@@ -4,7 +4,7 @@ import { types } from './redux/types'
 
 
 // Recuperamos el nombre, el host y el parámetro history
-function MicroFrontend({ name, host, history }) {
+const MicroFrontend = ({ name, host, history }) => {
 
 
 
