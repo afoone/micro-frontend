@@ -59,4 +59,4 @@ MicroFrontend.defaultProps = {
     window,
 };
 
-export default MicroFrontend;
+export default React.memo(MicroFrontend);
