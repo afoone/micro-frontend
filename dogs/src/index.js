@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker'
+import options from './options/options'
 
 window.renderDogs = (containerId, history) => {
   ReactDOM.render(
@@ -10,14 +11,7 @@ window.renderDogs = (containerId, history) => {
     document.getElementById(containerId),
   );
   serviceWorker.unregister();
-  return {
-    menu: [
-      {
-        title: "Ver Perrito",
-        to: "/dog/"
-      }
-    ]
-  }
+  return options
 };
 
 window.unmountCats = containerId => {
