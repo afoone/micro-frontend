@@ -13,7 +13,7 @@ const menuReducer = (state = stateInitial, action) => {
             console.log("estado final", [...state.menu, ...action.payload])
             return {
                 ...state,
-                menu: [...state.menu, ...action.payload],
+                menu: [...state.menu.filter(i => !action.payload.map(i => i.id).includes(i.id)), ...action.payload],
             };
         default:
             return state;

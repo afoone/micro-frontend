@@ -3,22 +3,23 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker'
+import options from './options/options'
+
+
+
 
 window.renderCats = (containerId, history) => {
   console.log("Rendering CATS ", containerId, history);
+
+
+
   ReactDOM.render(
     <App history={history} />,
     document.getElementById(containerId),
   );
+
   serviceWorker.unregister();
-  return {
-    menu: [
-      {
-        title: "Ver Gatito",
-        to: "/cat"
-      }
-    ]
-  }
+  return options
 };
 
 window.unmountCats = containerId => {
