@@ -8,12 +8,15 @@ function App(props) {
 
   const defaultHistory = createBrowserHistory();
 
-  const { history = defaultHistory } = props;
+  const { history = defaultHistory, title } = props;
+  console.log("title", title)
   return (
     <div>
       <Router history={history}>
         <Switch>
-          <Route exact path="/dog" component={DogOfTheDay}></Route>
+          <Route exact path="/dog" >
+            <DogOfTheDay title={title}></DogOfTheDay>
+          </Route>
         </Switch>
       </Router>
     </div>

@@ -4,15 +4,13 @@ import { types } from './redux/types'
 
 
 // Recuperamos el nombre, el host y el parámetro history
-const MicroFrontend = ({ name, host, history }) => {
+const MicroFrontend = props => {
 
+    const { name, host } = props;
 
-
-    // const menu = useSelector(state => state.menu)
     const dispatch = useDispatch()
 
     const menuInjection = menu => {
-        console.log("menu", menu)
         menu && dispatch({ type: types.ADD_MENU, payload: menu })
     }
 
@@ -20,9 +18,9 @@ const MicroFrontend = ({ name, host, history }) => {
         const scriptId = `micro-frontend-script-${name}`;
 
         const renderMicroFrontend = () => {
-            const options = window[`render${name}`](`${name}-container`, history);
+            const options = window[`render${name}`](`${name}-container`, props);
+            // actualizamos el estado global con los menús
             menuInjection(options?.menu)
-            // deberíamos actualizar un estado global con los menús
         };
 
         if (document.getElementById(scriptId)) {
@@ -59,4 +57,5 @@ MicroFrontend.defaultProps = {
     window,
 };
 
+// Uso el memo para evitar renderizados innecesarios
 export default React.memo(MicroFrontend);

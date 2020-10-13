@@ -8,10 +8,8 @@ import options from './options/options'
 
 
 
-window.renderCats = (containerId, history) => {
+window.renderCats = (containerId, { history }) => {
   console.log("Rendering CATS ", containerId, history);
-
-
 
   ReactDOM.render(
     <App history={history} />,

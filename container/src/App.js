@@ -8,9 +8,6 @@ import Menu from "./components/Menu";
 import Home from "./Home";
 import Header from "./components/Header";
 
-const defaultHistory = createBrowserHistory();
-
-
 // lectura del env del host de los microfrontends
 const {
   REACT_APP_DOGS_HOST: dogsHost,
@@ -18,10 +15,9 @@ const {
 } = process.env;
 
 
-
 // Creamos tres componentes usando microfrontend
 export function Dogs({ history }) {
-  return <MicroFrontend history={history} host={dogsHost} name="Dogs" />;
+  return <MicroFrontend history={history} host={dogsHost} name="Dogs" title="Un perrito guayoncín para el nene" />;
 }
 
 export function Cats({ history }) {

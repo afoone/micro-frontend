@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 
-const DogOfTheDay = () => {
+const DogOfTheDay = ({ title = "Perrito del día" }) => {
     const [dogImg, setDogImg] = useState(null);
 
     const fetchDog = () => {
@@ -20,7 +20,7 @@ const DogOfTheDay = () => {
 
     return (
         <header>
-            <h3>Perrito del día</h3>
+            <h3>{title}</h3>
             <div>
                 <button onClick={() => fetchDog()}>Nuevo perro</button>
             </div>
