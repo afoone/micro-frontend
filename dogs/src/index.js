@@ -10,6 +10,14 @@ window.renderDogs = (containerId, history) => {
     document.getElementById(containerId),
   );
   serviceWorker.unregister();
+  return {
+    menu: [
+      {
+        title: "Ver Perrito",
+        to: "/dog/"
+      }
+    ]
+  }
 };
 
 window.unmountCats = containerId => {

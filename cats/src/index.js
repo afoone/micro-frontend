@@ -5,12 +5,20 @@ import App from './App';
 import * as serviceWorker from './serviceWorker'
 
 window.renderCats = (containerId, history) => {
-  console.log("Rendering CATS ", containerId, history)
+  console.log("Rendering CATS ", containerId, history);
   ReactDOM.render(
     <App history={history} />,
     document.getElementById(containerId),
   );
   serviceWorker.unregister();
+  return {
+    menu: [
+      {
+        title: "Ver Gatito",
+        to: "/cat"
+      }
+    ]
+  }
 };
 
 window.unmountCats = containerId => {

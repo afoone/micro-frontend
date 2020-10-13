@@ -1,12 +1,28 @@
 import React, { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { types } from './redux/types'
+
 
 // Recuperamos el nombre, el host y el parámetro history
 function MicroFrontend({ name, host, history }) {
+
+
+
+    // const menu = useSelector(state => state.menu)
+    const dispatch = useDispatch()
+
+    const menuInjection = menu => {
+        console.log("menu", menu)
+        menu && dispatch({ type: types.ADD_MENU, payload: menu })
+    }
+
     useEffect(() => {
         const scriptId = `micro-frontend-script-${name}`;
 
         const renderMicroFrontend = () => {
-            window[`render${name}`](`${name}-container`, history);
+            const options = window[`render${name}`](`${name}-container`, history);
+            menuInjection(options?.menu)
+            // deberíamos actualizar un estado global con los menús
         };
 
         if (document.getElementById(scriptId)) {
